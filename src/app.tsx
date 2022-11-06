@@ -1,6 +1,6 @@
-import useAppStore from "./components/app.store";
-import GeneratorPage from "./pages/generator.page";
-import SettingsPage from "./pages/settings.page";
+import useAppStore from "/src/components/app.store";
+import GeneratorPage from "/src/pages/generator.page";
+import SettingsPage from "/src/pages/settings.page";
 
 export default function App() {
   const isSettings = useAppStore((state) => !!state.secret || !!state.name);

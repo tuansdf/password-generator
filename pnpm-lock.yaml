@@ -3,6 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@preact/preset-vite': ^2.4.0
   '@types/lodash-es': ^4.17.6
+  '@types/react': ^18.0.25
+  '@types/react-dom': ^18.0.8
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
   hash.js: ^1.1.7
@@ -11,6 +13,8 @@ specifiers:
   preact: ^10.11.2
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
+  react: ^18.2.0
+  react-dom: ^18.2.0
   react-hook-form: ^7.39.1
   tailwindcss: ^3.2.2
   typescript: ^4.6.4
@@ -22,12 +26,16 @@ dependencies:
   hash.js: 1.1.7
   lodash-es: 4.17.21
   preact: 10.11.2
-  react-hook-form: 7.39.1
-  zustand: 4.1.4
+  react: 18.2.0
+  react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.39.1_react@18.2.0
+  zustand: 4.1.4_react@18.2.0
 
 devDependencies:
   '@preact/preset-vite': 2.4.0_preact@10.11.2+vite@3.2.2
   '@types/lodash-es': 4.17.6
+  '@types/react': 18.0.25
+  '@types/react-dom': 18.0.8
   autoprefixer: 10.4.13_postcss@8.4.18
   postcss: 8.4.18
   prettier: 2.7.1
@@ -430,6 +438,28 @@ packages:
     resolution: {integrity: sha512-zmEmF5OIM3rb7SbLCFYoQhO4dGt2FRM9AMkxvA3LaADOF1n8in/zGJlWji9fmafLoNyz+FoL6FE0SLtGIArD7w==}
     dev: true
 
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react-dom/18.0.8:
+    resolution: {integrity: sha512-C3GYO0HLaOkk9dDAz3Dl4sbe4AKUGTCfFIZsz3n/82dPNN8Du533HzKatDxeUYWu24wJgMP1xICqkWk1YOLOIw==}
+    dependencies:
+      '@types/react': 18.0.25
+    dev: true
+
+  /@types/react/18.0.25:
+    resolution: {integrity: sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+    dev: true
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
+
   /acorn-node/1.8.2:
     resolution: {integrity: sha512-8mt+fslDufLYntIoPAaIMUe/lrbrehIiwmR3t2k9LljIzoigEPF27eLk2hy8zSGzmR/ogr7zbRKINMo1u0yh5A==}
     dependencies:
@@ -573,6 +603,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: true
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
     dev: true
 
   /debug/4.3.4:
@@ -956,7 +990,6 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-    dev: true
 
   /jsesc/2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
@@ -981,6 +1014,13 @@ packages:
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
+  /loose-envify/1.4.0:
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
+    dependencies:
+      js-tokens: 4.0.0
     dev: false
 
   /merge2/1.4.1:
@@ -1148,11 +1188,30 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /react-hook-form/7.39.1:
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.39.1_react@18.2.0:
     resolution: {integrity: sha512-MiF9PCILN5KulhSGbnjohMiTOrB47GerDTichMNP0y2cPUu1GTRFqbunOxCE9N1499YTLMV/ne4gFzqCp1rxrQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /react/18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
     dev: false
 
   /read-cache/1.0.0:
@@ -1195,6 +1254,12 @@ packages:
     dependencies:
       queue-microtask: 1.2.3
     dev: true
+
+  /scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
@@ -1281,10 +1346,12 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /use-sync-external-store/1.2.0:
+  /use-sync-external-store/1.2.0_react@18.2.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /util-deprecate/1.0.2:
@@ -1331,7 +1398,7 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /zustand/4.1.4:
+  /zustand/4.1.4_react@18.2.0:
     resolution: {integrity: sha512-k2jVOlWo8p4R83mQ+/uyB8ILPO2PCJOf+QVjcL+1PbMCk1w5OoPYpAIxy9zd93FSfmJqoH6lGdwzzjwqJIRU5A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -1343,5 +1410,6 @@ packages:
       react:
         optional: true
     dependencies:
-      use-sync-external-store: 1.2.0
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
     dev: false

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import hash from "hash.js";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import useAppStore from "../components/app.store";
-import Button from "../components/button";
-import TextField from "../components/text-field";
+import useAppStore from "/src/components/app.store";
+import Button from "/src/components/button";
+import TextField from "/src/components/text-field";
 
 interface IHashContent {
   name: string;

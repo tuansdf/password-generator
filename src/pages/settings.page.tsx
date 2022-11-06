@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import useAppStore, { IAppSettings } from "../components/app.store";
-import Button from "../components/button";
-import TextField from "../components/text-field";
+import useAppStore, { IAppSettings } from "/src/components/app.store";
+import Button from "/src/components/button";
+import TextField from "/src/components/text-field";
 
 export default function SettingsPage() {
   const { register, handleSubmit } = useForm<IAppSettings>();
