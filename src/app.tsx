@@ -6,11 +6,13 @@ export default function App() {
   const isSettings = useAppStore((state) => !!state.secret || !!state.name);
 
   return (
-    <div className="grid min-h-screen place-items-center bg-gradient-to-br from-cyan-900 to-cyan-700 text-white">
+    <div className="grid min-h-screen place-items-center bg-slate-900 text-slate-50">
       {/* main */}
-      <div className="w-full max-w-lg rounded-md bg-white/10 p-6 lg:p-10">
+      <div className="w-full max-w-lg rounded-md border border-slate-700 bg-slate-800 p-6 lg:p-10">
         {/* title */}
-        <h1 className="mb-8 text-center text-4xl">Password Manager</h1>
+        <h1 className="mb-8 text-center text-2xl font-semibold">
+          Password Manager
+        </h1>
         {!isSettings ? <SettingsPage /> : <GeneratorPage />}
       </div>
     </div>

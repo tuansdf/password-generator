@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, forwardRef, InputHTMLAttributes } from "react";
+import {
+  DetailedHTMLProps,
+  forwardRef,
+  InputHTMLAttributes,
+  useId,
+} from "react";
 import { UseFormRegister } from "react-hook-form";
 
 interface Props
@@ -14,12 +19,19 @@ export default forwardRef<HTMLInputElement, Props>(function TextField(
   { label, className, ...rest },
   ref
 ) {
+  const inputId = useId();
+
   return (
     <div className="w-full">
-      {label ? <label className="mb-2 inline-block">{label}</label> : null}
+      {label ? (
+        <label className="mb-2 inline-block" htmlFor={inputId}>
+          {label}
+        </label>
+      ) : null}
       <input
         {...rest}
-        className="w-full rounded-md py-3 px-4 text-black"
+        id={inputId}
+        className="w-full rounded-md bg-slate-700 py-3 px-4 text-slate-100 transition-colors hover:bg-slate-600"
         ref={ref}
       />
     </div>

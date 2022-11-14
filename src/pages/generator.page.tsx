@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import hash from "hash.js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAppStore from "/src/components/app.store";
 import Button from "/src/components/button";
@@ -15,29 +15,22 @@ interface IHashContent {
 const defaultResult = "Please enter a domain name";
 
 export default function GeneratorPage() {
-  const { register, watch } = useForm<{ site: string }>();
-
   const { reset, name, secret } = useAppStore();
 
+  const { register, watch } = useForm<{ site: string }>();
   const [showPopup, setShowPopup] = useState(false);
-  const [result, setResult] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const hashResult = ({ site, name, secret }: IHashContent) =>
-    setResult(
-      site
-        ? hash
-            .sha512()
-            .update(name + secret + site)
-            .digest("hex")
-            .substring(0, 16)
-        : defaultResult
-    );
-
-  useEffect(() => {
+  const result = useMemo(() => {
     const site = watch("site");
     if (!name || !secret) return;
-    hashResult({ site, name, secret });
+    return site
+      ? hash
+          .sha512()
+          .update(name + secret + site)
+          .digest("hex")
+          .substring(0, 16)
+      : "";
   }, [watch("site")]);
 
   useEffect(() => {
@@ -56,7 +49,7 @@ export default function GeneratorPage() {
 
   return (
     <>
-      <form className="grid gap-4">
+      <form onSubmit={(e) => e.preventDefault()} className="grid gap-4">
         <TextField label="Site Domain" {...register("site")} />
 
         <div>
@@ -67,14 +60,17 @@ export default function GeneratorPage() {
             <div
               ref={resultRef}
               title="Click to copy to clipboard"
-              className="cursor-pointer truncate rounded-md bg-cyan-500 px-4 py-3"
+              className={clsx("cursor-pointer truncate rounded-md px-4 py-3", {
+                "bg-red-500": !result,
+                "bg-green-600": !!result,
+              })}
             >
               {result || defaultResult}
             </div>
             {/* popover */}
             <div
               className={clsx(
-                "absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md bg-black/50 p-2 text-sm transition-opacity",
+                "absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md bg-slate-500 p-2 text-sm transition-opacity",
                 { "opacity-0": !showPopup }
               )}
             >

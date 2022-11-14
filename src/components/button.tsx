@@ -14,7 +14,7 @@ export default function Button({ children, className, ...rest }: Props) {
     <button
       {...rest}
       className={clsx(
-        "w-full rounded-full bg-cyan-900 px-8 py-3 text-lg hover:opacity-90",
+        "w-full rounded-full bg-blue-500 px-8 py-3 text-lg transition-colors hover:bg-blue-600",
         className
       )}
     >
