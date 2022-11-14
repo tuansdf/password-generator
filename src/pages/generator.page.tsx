@@ -61,8 +61,8 @@ export default function GeneratorPage() {
               ref={resultRef}
               title="Click to copy to clipboard"
               className={clsx("cursor-pointer truncate rounded-md px-4 py-3", {
-                "bg-red-500": !result,
-                "bg-green-600": !!result,
+                "bg-danger-500": !result,
+                "bg-success-600": !!result,
               })}
             >
               {result || defaultResult}
@@ -70,7 +70,7 @@ export default function GeneratorPage() {
             {/* popover */}
             <div
               className={clsx(
-                "absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md bg-slate-500 p-2 text-sm transition-opacity",
+                "absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md bg-base-500 p-2 text-sm transition-opacity",
                 { "opacity-0": !showPopup }
               )}
             >

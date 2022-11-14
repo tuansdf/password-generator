@@ -31,7 +31,7 @@ export default forwardRef<HTMLInputElement, Props>(function TextField(
       <input
         {...rest}
         id={inputId}
-        className="w-full rounded-md bg-slate-700 py-3 px-4 text-slate-100 transition-colors hover:bg-slate-600"
+        className="w-full rounded-md bg-base-700 py-3 px-4 text-base-100 transition-colors hover:bg-base-600"
         ref={ref}
       />
     </div>
